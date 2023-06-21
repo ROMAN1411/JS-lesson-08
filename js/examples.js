@@ -252,10 +252,62 @@ console.log('-------------------- Example - 12 --------------------');
    * (Властивість onSale), відсортованих за зростанням ціни.
    */
 
+  /**
+   * Get cars on sale and sort them
+   * @param {Array} cars - Array with object
+   * @returns {Array} - sorted Array onSale
+   */
+
   const getSortedCarsOnSale = cars =>
     cars
       .filter(({ onSale }) => onSale)
       .sort(({ price: a }, { price: b }) => a - b);
 
   //   console.table(getSortedCarsOnSale(cars));
+}
+console.log('-------------------- Task 1 --------------------');
+{
+  const str = 'duaguidgasuidgauisdhasudasdfhsgvfakhfugduashc';
+  const result = str.split('').reduce((acc, item) => {
+    // Варіант №1
+    // acc.hasOwnProperty(item) ? (acc[item] += 1) : (acc[item] = 1);
+
+    // Варіант №2
+    const keys = Object.keys(acc);
+    keys.includes(item) ? (acc[item] += 1) : (acc[item] = 1);
+
+    return acc;
+  }, {});
+
+  // console.log(result);
+}
+console.log('-------------------- Task 2 --------------------');
+{
+  // const arr = ['Honda', 'Audi', 'BMW', 'Skoda', 'Ford', 'Renault'];
+
+  // Загальна кількість авто 6:
+
+  // 1 Honda
+  // 2 Audi
+
+  // 6 Reno
+
+  // const arr = [];
+
+  // Вибачте авто немає
+
+  function logCars(arr) {
+    const result = arr.reduce(
+      (acc, car, idx) => {
+        return acc + `${idx + 1} - ${car}\n`;
+      },
+      arr.length
+        ? `Загальна кількість авто ${arr.length} \n`
+        : `Вибачте авто немає 😢`,
+    );
+    return result;
+  }
+
+  // console.log(logCars(['Honda', 'Audi', 'BMW', 'Skoda', 'Ford', 'Renault']));
+  // console.log(logCars([]));
 }
